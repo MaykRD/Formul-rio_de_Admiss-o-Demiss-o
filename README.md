@@ -1,7 +1,7 @@
 # 📋 Formulário de Admissão/Demissão Digital para RH
 
 Uma aplicação web simples e eficiente para **gerenciar processos de admissão e demissão de colaboradores**.
-Feita em um único arquivo **HTML**, utiliza apenas tecnologias front-end, sem precisar de servidor ou banco de dados externo.
+Feita em **HTML**,**CSS** e **JS** utiliza apenas tecnologias front-end, sem precisar de servidor ou banco de dados externo.
 
 ---
 
