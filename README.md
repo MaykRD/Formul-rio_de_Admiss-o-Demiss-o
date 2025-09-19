@@ -61,11 +61,10 @@ rh_form.html   # Arquivo principal contendo toda a aplicação
 
 ## 📸 Captura de Tela
 
-```markdown
-![Tela principal do sistema](Capturar.png)
-```
+![Tela principal do sistema](./Capturar1.PNG)
 
----
+
+
 
 ### ✍️ Autor
 
