@@ -45,7 +45,6 @@ rh_form.html   # Arquivo principal contendo toda a aplicação
 ## 📌 Observações
 
 * Todos os dados ficam armazenados localmente no **localStorage**.
-* Para limpar os registros, basta apagar os dados do localStorage do navegador.
 * Compatível com qualquer sistema operacional e navegador moderno.
 
 ---
