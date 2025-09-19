@@ -59,6 +59,6 @@ rh_form.html   # Arquivo principal contendo toda a aplicação
 
 ---
 
-## 📸 Captura de Tela
+## 📸 Captura de Tela  
 
-![Screenshot do projeto](./Capturar1.PNG)
+![Tela principal do sistema](./Capturar1.png)
