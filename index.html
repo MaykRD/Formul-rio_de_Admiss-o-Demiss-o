@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Admissão / Demissão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 md:p-8">
+
+    <div class="container mx-auto max-w-5xl">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-700">Formulário de Admissão / Demissão</h1>
+            <p class="text-gray-500 mt-2">Gerencie processos de RH de forma digital e eficiente.</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Formulário -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Novo Processo</h2>
+                <form id="rh-form" class="space-y-4">
+                    <input type="hidden" id="record-to-demit-id" value="">
+                    <div>
+                        <label for="process-type" class="block text-sm font-medium text-gray-600">Tipo de Processo</label>
+                        <select id="process-type" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="admissao">Admissão</option>
+                            <option value="demissao">Demissão</option>
+                        </select>
+                    </div>
+
+                    <!-- Dados Comuns -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold border-b pb-1">Dados do Colaborador</h3>
+                        <div>
+                            <label for="full-name" class="block text-sm font-medium text-gray-600">Nome Completo</label>
+                            <input type="text" id="full-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+                        </div>
+                        <div>
+                            <label for="cpf" class="block text-sm font-medium text-gray-600">CPF</label>
+                            <input type="text" id="cpf" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+                        </div>
+                        <div>
+                            <label for="position" class="block text-sm font-medium text-gray-600">Cargo</label>
+                            <input type="text" id="position" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+                        </div>
+                    </div>
+
+                    <!-- Seção de Admissão -->
+                    <div id="admissao-section" class="form-section active space-y-4">
+                        <h3 class="text-lg font-semibold border-b pb-1 mt-4">Informações de Admissão</h3>
+                        <div>
+                            <label for="admission-date" class="block text-sm font-medium text-gray-600">Data de Admissão</label>
+                            <input type="date" id="admission-date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+                        </div>
+                        <div>
+                            <label for="salary" class="block text-sm font-medium text-gray-600">Salário (R$)</label>
+                            <input type="number" id="salary" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+                        </div>
+                    </div>
+
+                    <!-- Seção de Demissão -->
+                    <div id="demissao-section" class="form-section space-y-4">
+                        <h3 class="text-lg font-semibold border-b pb-1 mt-4">Informações de Demissão</h3>
+                        <div>
+                            <label for="termination-date" class="block text-sm font-medium text-gray-600">Data de Demissão</label>
+                            <input type="date" id="termination-date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+                        </div>
+                        <div>
+                            <label for="termination-reason" class="block text-sm font-medium text-gray-600">Motivo da Demissão</label>
+                            <textarea id="termination-reason" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">
+                        Salvar Processo
+                    </button>
+                </form>
+            </div>
+
+            <!-- Lista de Registros -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-semibold border-b pb-2">Registros</h2>
+                    <div>
+                        <button id="show-all" class="mr-2 text-indigo-600 font-bold">Todos</button>
+                        <button id="show-demitidos" class="text-red-600 font-bold">Demitidos</button>
+                    </div>
+                </div>
+
+                <!-- Barra de Pesquisa -->
+                <div class="mb-4">
+                    <input type="text" id="search-input" placeholder="Pesquisar por nome..." class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+
+                <div id="records-list" class="space-y-4">
+                    <p id="no-records-message" class="text-gray-500 text-center py-8">Nenhum registro encontrado.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Detalhes -->
+    <div id="record-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl p-6 w-full max-w-lg max-h-[90vh] overflow-y-auto fade-in"></div>
+    </div>
+
+    <!-- Modal de Mensagem -->
+    <div id="message-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-2xl p-6 text-center w-full max-w-sm">
+            <p id="modal-message-text" class="text-gray-700 font-semibold"></p>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
