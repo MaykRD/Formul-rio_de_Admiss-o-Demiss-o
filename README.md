@@ -59,6 +59,14 @@ rh_form.html   # Arquivo principal contendo toda a aplicação
 
 ---
 
+## 📸 Captura de Tela
+
+```markdown
+![Tela principal do sistema](Capturar.png)
+```
+
+---
+
 ### ✍️ Autor
 
 Projeto desenvolvido para simplificar processos de RH de forma digital, prática e acessível.
