@@ -61,4 +61,4 @@ rh_form.html   # Arquivo principal contendo toda a aplicação
 
 ## 📸 Captura de Tela  
 
-![Tela principal do sistema](./Capturar1.png)
+![Tela principal do sistema](https://github.com/MaykRD/Formul-rio_de_Admiss-o-Demiss-o/blob/master/Capturar.PNG)
